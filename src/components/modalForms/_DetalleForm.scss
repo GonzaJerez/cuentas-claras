@@ -1,0 +1,66 @@
+.detalle__form{
+
+    h1{
+        padding-left: 5%;
+    }
+
+    .detalle__section{
+        padding: 2% 8%;
+
+        h4{
+            padding-bottom: 1rem;
+            display: flex;
+            justify-content: space-between;
+
+            a{
+                color: $dark-primary-color;
+                
+                &:hover{
+                    text-decoration: underline;
+                }
+            }
+
+            span{
+                text-align: end;
+            }
+        }
+
+        
+
+    }
+    .boton-saldar{
+        background-color: #3a9182;
+        width: 100%;
+        border-radius: 0;
+        height: 3rem;
+        color: #FEFEDF;
+        display: block;
+        margin: 0 auto;
+
+        &:hover{
+            background-color: darken($color: $dark-primary-color, $amount: 5);
+        }
+    }
+}
+
+@media( max-width: 600px ){
+    .detalle__form{
+        .detalle__section{
+            h4{
+                padding: 0.3rem;
+                font-size: 1.2rem;
+            }
+        }
+    }
+}
+
+@media( max-width: 500px ){
+    .detalle__form{
+        .detalle__section{
+            h4{
+                padding: 0.2rem;
+                font-size: 1rem;
+            }
+        }
+    }
+}

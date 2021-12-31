@@ -1,0 +1,28 @@
+.modal__modal{
+    .form__transferencia{
+    
+        .modal__section{
+            padding-bottom: 0.2rem;
+        }
+
+        hr{
+            margin: 0.5rem 0;
+        }
+
+        .cantidad{
+            padding-top: 0.5rem;
+        }
+    }
+}
+
+
+@media( max-width: 370px ){
+    .modal__modal{
+        .form__transferencia{
+        
+            h1{
+                font-size: 1.3rem;
+            }
+        }
+    }
+}

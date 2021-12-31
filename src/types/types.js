@@ -1,0 +1,52 @@
+export const types = {
+
+    nuevoIngreso: '[Movimientos] Nuevo Ingreso',
+    nuevoGasto: '[Movimientos] Nuevo Gasto',
+    nuevaTransferencia: '[Movimientos] Nueva Transferencia',
+    insertarMovActivo: '[Movimientos] Insertar Movimiento Activo',
+    eliminarMovActivo: '[Movimientos] Eliminar Movimiento Activo',
+    actualizarMovimiento: '[Movimientos] Actualizar Movimiento',
+    eliminarMovimiento: '[Movimientos] Eliminar Movimientos',
+    nuevaDeuda: '[Movimientos] Nueva Deuda',
+    editarMontosDeuda: '[Movimientos] Editar Montos Deuda',
+    eliminarCuotaDeuda: '[Movimientos] Eliminar Cuota Deuda',
+    nuevoPrestamo: '[Movimientos] Nuevo Prestamo',
+    editarNombreCategoria: '[Movimientos] Editar Nombre Categoria',
+    editarNombreCuenta: '[Movimientos] Editar Nombre Cuenta',
+    editarNombreSubcuenta: '[Movimientos] Editar Nombre Subcuenta',
+    limpiarMovimientos: '[Movimientos] Limpiar Movimientos',
+    cargarMovimientos: '[Movimientos] Cargar Movimientos',
+
+    openModal: '[Modal] Open Modal',
+    closeModal: '[Modal] Close Modal',
+
+    agregarCuenta: '[Cuentas] Agregar Cuenta',
+    eliminarCuenta: '[Cuentas] Eliminar Cuenta',
+    editarCuenta: '[Cuentas] Editar Cuenta',
+    agregarSubcuenta: '[Cuentas] Agregar Subcuenta',
+    eliminarSubcuenta: '[Cuentas] Eliminar Subcuenta',
+    editarSubcuenta: '[Cuentas] Editar Subcuenta',
+    abrirModoEdicionCuentas: '[Cuentas] Abrir Modo Edicion',
+    cerrarModoEdicionCuentas: '[Cuentas] Cerrar Modo Edicion',
+    insertarCuentaActiva: '[Cuentas] Insertar cuenta activa',
+    eliminarCuentaActiva: '[Cuentas] Eliminar cuenta activa',
+    limpiarCuentas: '[Cuentas] Limpiar Cuentas',
+    cargarCuentas: '[Cuentas] Cargar Cuentas',
+
+    agregarCategoria: '[Categorias] Agregar Categoria',
+    eliminarCategoria: '[Categorias] Eliminar Categoria',
+    editarCategoria: '[Categorias] Editar Categoria',
+    botonEditarCategoriaVisible: '[Categorias] Boton Editar Categoria Visible',
+    abrirModoEdicionCategorias: '[Categorias] Abrir Modo Edicion',
+    cerrarModoEdicionCategorias: '[Categorias] Cerrar Modo Edicion',
+    insertarCategoriaActiva: '[Categorias] Insertar Categoria activa',
+    eliminarCategoriaActiva: '[Categorias] Eliminar Categoria activa',
+    limpiarCategorias: '[Categorias] Limpiar Categorias',
+    cargarCategorias: '[Categorias] Cargar Categorias',
+
+    actualizarValores: '[Valores] Actualizar Valores',
+
+    login: '[auth] Login',
+    logout: '[auth] Logout',
+
+}

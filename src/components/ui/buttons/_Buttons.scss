@@ -1,0 +1,104 @@
+.boton-plus{
+    position: fixed;
+    bottom: 5%;
+    right: 10%;
+}
+
+.btn:focus{
+    box-shadow: none;
+}
+
+.buttons__plus, .buttons__close{
+    border: none;
+    border-radius: 50%;
+    box-shadow: 1px 1px 7px 0px #1111118c;
+    color: $secondary-color;
+    font-size: 2rem;
+    width: 3rem;
+}
+
+.buttons__plus{
+    background-color: $dark-primary-color;
+}
+
+.buttons__close{
+    background-color: #ff2d2d;
+}
+
+.vista-buttons{
+    position: fixed;
+    height: 0px;
+    left: 0;
+    bottom: 7rem;
+    overflow: hidden;
+    text-align: end;
+    transition: 300ms;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(to right, transparent, #f1f1f1 50%);
+    transform: translateY(1px);
+    border-right: 3px solid $dark-primary-color
+}
+
+.visible{
+    height: 399px;
+}
+
+.btn-menu{
+    // border-bottom: 1px solid rgb(185, 185, 185);
+    font-family: 'Roboto';
+    height: calc( 400px / 8 );
+    color: #565656;
+    text-align: end;
+    transition: all 200ms;
+    outline: none;
+
+    &:hover{
+        // background-color: #dfdfdf;
+        background-color: #ffffff;
+        text-decoration: underline;
+        // border-bottom: 1px solid #b7b7b7;
+        // border-right: 1px solid black;
+        padding-right: 2rem;
+        color: #333333;
+    }
+
+    &:focus{
+        box-shadow: none;
+    }
+
+    i{
+        padding-left: 1rem;
+    }
+}
+
+.btn-editar{
+    left: 10%;
+    right: 10%;
+    bottom: 5%;
+    display: block;
+    justify-content: flex-end;
+    position: fixed;
+    font-size: 1.5rem;
+    border: none;
+    border-radius: 50%;
+    box-shadow: 1px 1px 7px 0px #1111118c;
+    color: #333333;
+    height: 3rem;
+    width: 3rem;
+    padding: 0;
+    line-height: 3rem;
+
+    i{
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+@media( max-width: 520px){
+    .buttons__view button{
+        font-size: 0.9rem;
+    }
+}

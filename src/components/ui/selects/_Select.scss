@@ -1,0 +1,38 @@
+.select__view{
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1rem;
+
+    select{
+        text-transform: capitalize;
+        border: 0px;
+        cursor: pointer;
+        outline: none;
+        background-color: transparent;
+
+        &::-ms-expand{
+            display: none;
+        }
+    }
+
+    .upperCase{
+        text-transform: uppercase;
+    }
+
+}
+
+@media( max-width: 500px ){
+    .select__view{
+        select{
+            font-size: 0.9rem;
+        }
+    }
+}
+
+@media( max-width: 450px ){
+    .select__view{
+        select{
+            font-size: 0.8rem;
+        }
+    }
+}

@@ -1,0 +1,36 @@
+.list__view{
+    font-size: 1rem;
+    // margin-top: 2rem;
+}
+
+.list-group{
+    border: none;
+    
+
+    .list-group-item{
+        border: none;
+        background-color: transparent;
+        color: darken($color: $dark-grey, $amount: 80);
+        padding: 1rem;
+        font-size: 0.9rem;
+
+        .badge{
+            padding: 0.4rem;
+        }
+
+        i{
+            position: absolute;
+            right: -1rem;
+            cursor: pointer
+        }
+
+    }
+
+}
+
+/* @media( min-width: 600px){
+
+    .categories__list{
+        font-size: 1.2rem;
+    }
+} */

@@ -1,0 +1,16 @@
+.go-back{
+    position: fixed;
+    top: 10%;
+    left: 5%;
+    font-size: 2rem;
+    background-color: transparent;
+    border: none;
+
+    i:hover{
+        color: $dark-grey;
+    }
+}
+
+.movimientos__titulo{
+    margin-bottom: 2rem;
+}

@@ -1,0 +1,95 @@
+
+.table{
+
+    thead, tbody{
+        text-align: center;
+        text-transform: capitalize;
+    }
+
+    thead{
+        th{
+            font-size: 1rem;
+            padding: 0.7rem 1%;
+        }
+    }
+
+    tbody{
+        th, td{
+            font-size: 0.9rem;
+            padding: 0.7rem 1%;
+        }
+
+        td{
+            color: $dark-grey;
+        }
+    }
+
+    .table__movimiento{
+        cursor: pointer;
+
+        &:hover{
+            background-color: $light-grey;
+        }
+    }
+
+    .table__btn{
+        border: none;
+        font-size: 14px;
+        border-radius: 50%;
+        transition: all 200ms;
+        background-color: transparent;
+        padding: 0;
+
+        &:hover{
+            color: $dark-primary-color;
+        }
+
+        .bi-check2-circle{
+            background-color: transparent;
+            color: green;
+        }
+
+        .bi-clock-history{
+            background-color: transparent;
+            color: red;
+        }
+
+        i{
+            display: block;
+            margin: 0 2px;
+        }
+    }
+}
+
+@media( max-width: 550px ){
+    .table{   
+        thead{
+            th{
+                font-size: 0.8rem;
+            }
+        }   
+        tbody{
+            th, td{
+                font-size: 0.7rem;
+            }
+        }
+        .table__btn{
+            font-size: 13px;
+        }
+    }
+}
+
+@media( max-width: 300px ){
+    .table{   
+        thead{
+            th{
+                font-size: 0.7rem;
+            }
+        }   
+        /* tbody{
+            th, td{
+                font-size: 0.5rem;
+            }
+        } */
+    }
+}

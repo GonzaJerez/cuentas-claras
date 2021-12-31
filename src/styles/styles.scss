@@ -1,0 +1,16 @@
+@import './config';
+@import './base';
+
+@import '../components/principalRoutes/home/HomeScreen';
+@import '../components/ui/navbar/Navbar';
+@import '../components/ui/buttons/Buttons';
+@import '../components/ui/lists/List';
+@import '../components/ui/selects/Select';
+@import '../components/ui/acordeon/Acordeon';
+@import '../components/ui/tables/Table.scss';
+@import '../components/principalRoutes/movimientos/Movimientos';
+@import '../components/ui/modal/Modal';
+@import '../components/modalForms/formTransferencias/TransferenciaForm';
+@import '../components/modalForms/DetalleForm';
+@import '../components/auth/LoginScreen';
+@import '../components/loadings/Loading';
