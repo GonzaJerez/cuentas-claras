@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/cuentas-claras/static/css/main.fe955925.chunk.css",
+    "main.js": "/cuentas-claras/static/js/main.b56fb98e.chunk.js",
+    "main.js.map": "/cuentas-claras/static/js/main.b56fb98e.chunk.js.map",
+    "runtime-main.js": "/cuentas-claras/static/js/runtime-main.da728d4c.js",
+    "runtime-main.js.map": "/cuentas-claras/static/js/runtime-main.da728d4c.js.map",
+    "static/css/2.0514c5e1.chunk.css": "/cuentas-claras/static/css/2.0514c5e1.chunk.css",
+    "static/js/2.f11fdfde.chunk.js": "/cuentas-claras/static/js/2.f11fdfde.chunk.js",
+    "static/js/2.f11fdfde.chunk.js.map": "/cuentas-claras/static/js/2.f11fdfde.chunk.js.map",
+    "index.html": "/cuentas-claras/index.html",
+    "static/css/2.0514c5e1.chunk.css.map": "/cuentas-claras/static/css/2.0514c5e1.chunk.css.map",
+    "static/css/main.fe955925.chunk.css.map": "/cuentas-claras/static/css/main.fe955925.chunk.css.map",
+    "static/js/2.f11fdfde.chunk.js.LICENSE.txt": "/cuentas-claras/static/js/2.f11fdfde.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.da728d4c.js",
+    "static/css/2.0514c5e1.chunk.css",
+    "static/js/2.f11fdfde.chunk.js",
+    "static/css/main.fe955925.chunk.css",
+    "static/js/main.b56fb98e.chunk.js"
+  ]
+}
