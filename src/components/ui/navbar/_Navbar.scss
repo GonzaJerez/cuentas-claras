@@ -121,16 +121,10 @@
     width: calc( 100% - 3rem);
 }
 
-
-/* @keyframes circle-in-center {
-    from {
-      clip-path: circle(0%);
-    }
-    to {
-      clip-path: circle(125%);
-    }
-  } */
-
+.navbar__menu ul li .active{
+    color: darken($color: $dark-primary-color, $amount: 5);
+    padding-left: 2.5rem;
+}
 
 
 @media( min-width: 650px){

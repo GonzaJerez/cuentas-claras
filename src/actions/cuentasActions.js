@@ -50,7 +50,14 @@ export const startCargarCuentas = () => {
             const { uid } = getState().auth;
             const cuentasFirebase = await loadCuentas( uid )
 
-            dispatch( cargarCuentas( cuentasFirebase ) )
+            if ( cuentasFirebase.length === 0 ) {
+                dispatch( startAgregarCuentasPorDefecto() )
+                dispatch( cargarCuentas( cuentas ))
+            } else {
+
+                dispatch( cargarCuentas( cuentasFirebase ) )
+            }
+
 
         } catch ( err) {
             console.log( err );

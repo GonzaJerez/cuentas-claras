@@ -201,7 +201,7 @@
 }
 }
   
-@media( max-width: 600px ){
+@media( max-width: 600px ), ( max-height: 700px) {
     .login__screen{
         padding-top: 20%;
     }
@@ -249,9 +249,22 @@
      
 }
 
-/* @media( min-width: 700px ){
+@media( max-height: 800px) and ( min-width: 700px ) {
     .login__screen{
-        padding-top: 30%;
+        padding-top: 5rem;
+    }
+    .auth__container{
+        padding-top: 10%;
+
+        h1{
+            margin-bottom: 0px;
+        }
+
+        form{
+            .form-control{
+                padding-top: 1rem;
+            }
+        }
     }
      
-} */
+}

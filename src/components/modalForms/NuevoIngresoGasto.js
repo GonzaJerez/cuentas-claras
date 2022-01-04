@@ -33,7 +33,7 @@ export const NuevoIngresoGasto = ({ handleClose }) => {
     const [ formValues, handleChange, handleChangeCalendar ] = useForm( activeMov ? activeMov : {
         fecha: new Date(),
         cuenta: nombreCuentas[0],
-        subcuenta: cuentas.find( el => el.nombre === nombreCuentas[0]).subcuentas[0],
+        subcuenta: cuentas.find( el => el.nombre === nombreCuentas[0])?.subcuentas[0],
         categoria: nombreCategorias[0],
         cantidad: '',
         descripcion: '',
@@ -182,7 +182,7 @@ export const NuevoIngresoGasto = ({ handleClose }) => {
 
     }
     let subcuentas
-    formValues.cuenta === 'nuevaCuenta' ? subcuentas = '-' : subcuentas = cuentas.find( el => el.nombre === formValues.cuenta ).subcuentas
+    formValues.cuenta === 'nuevaCuenta' ? subcuentas = '-' : subcuentas = cuentas.find( el => el.nombre === formValues.cuenta )?.subcuentas
 
 
     return (

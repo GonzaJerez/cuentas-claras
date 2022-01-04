@@ -1,5 +1,5 @@
 import { useRef } from "react"
-import { Link, Routes, Route, Navigate } from 'react-router-dom'
+import { NavLink, Routes, Route, Navigate } from 'react-router-dom'
 import { MovimientosScreen } from "../../principalRoutes/movimientos/MovimientosScreen";
 import { CategoriesScreen } from "../../principalRoutes/categories/CategoriesScreen";
 import { CuentasScreen } from "../../principalRoutes/cuentas/CuentasScreen";
@@ -92,66 +92,66 @@ export const Navbar = () => {
                         <h5 className="displayName">{ name }</h5>
                     </li>
                     <li>
-                        <Link to='/' onClick={ handleClose }>
+                        <NavLink to='/' onClick={ handleClose } className={ ({ isActive }) => isActive ? 'active' : '' }>
                             <i className="bi bi-house"></i>Home
-                        </Link>
+                        </NavLink>
                     </li>
                     <li>
-                        <Link to='/categories' onClick={ handleClose }>
+                        <NavLink to='/categories' onClick={ handleClose } className={ ({ isActive }) => isActive ? 'active' : '' }>
                             <i className="bi bi-list-task"></i>Categorias
-                        </Link>
+                        </NavLink>
                     </li>
                     <li>
-                        <Link to='/ingresos' onClick={ handleClose }>
+                        <NavLink to='/ingresos' onClick={ handleClose } className={ ({ isActive }) => isActive ? 'active' : '' }>
                             <i className="bi bi-graph-up-arrow"></i>Ingresos
-                        </Link>
+                        </NavLink>
                     </li>
                     <li>
-                        <Link to='/gastos' onClick={ handleClose }>
+                        <NavLink to='/gastos' onClick={ handleClose } className={ ({ isActive }) => isActive ? 'active' : '' }>
                             <i className="bi bi-graph-down-arrow"></i>Gastos
-                        </Link>
+                        </NavLink>
                     </li>
                     <li>
-                        <Link to='/deudas' onClick={ handleClose }>
+                        <NavLink to='/deudas' onClick={ handleClose } className={ ({ isActive }) => isActive ? 'active' : '' }>
                         <i className="bi bi-bank"></i>Deudas
-                        </Link>
+                        </NavLink>
                     </li>
                     <li>
-                        <Link to='/deudas-a-cobrar' onClick={ handleClose }>
+                        <NavLink to='/deudas-a-cobrar' onClick={ handleClose } className={ ({ isActive }) => isActive ? 'active' : '' }>
                         <i className="bi bi-percent"></i>Deudas a cobrar
-                        </Link>
+                        </NavLink>
                     </li>
                     <li>
-                        <Link to='/transferencias' onClick={ handleClose }>
+                        <NavLink to='/transferencias' onClick={ handleClose } className={ ({ isActive }) => isActive ? 'active' : '' }>
                             <i className="bi bi-arrow-left-right"></i>Transferencias
-                        </Link>
+                        </NavLink>
                     </li>
                     <li>
-                        <Link to='/cuentas' onClick={ handleClose }>
+                        <NavLink to='/cuentas' onClick={ handleClose } className={ ({ isActive }) => isActive ? 'active' : '' }>
                             <i className="bi bi-wallet"></i>Cuentas
-                        </Link>
+                        </NavLink>
                     </li>
                     <li>
-                        <Link to='/estadisticas' onClick={ handleClose }>
+                        <NavLink to='/estadisticas' onClick={ handleClose } className={ ({ isActive }) => isActive ? 'active' : '' }>
                             <i className="bi bi-bar-chart"></i>Estadisticas
-                        </Link>
+                        </NavLink>
                     </li>
                     <li>
-                        <Link to='/compras' onClick={ handleClose }>
+                        <NavLink to='/compras' onClick={ handleClose } className={ ({ isActive }) => isActive ? 'active' : '' }>
                         <i className="bi bi-cart"></i>Compras
-                        </Link>
+                        </NavLink>
                     </li>
                     <li>
-                        <Link to='/ventas' onClick={ handleClose }>
+                        <NavLink to='/ventas' onClick={ handleClose } className={ ({ isActive }) => isActive ? 'active' : '' }>
                         <i className="bi bi-piggy-bank"></i>Ventas
-                        </Link>
+                        </NavLink>
                     </li>
                 </ul>
                 <ul>
                     <li>
-                        <Link to='/login' onClick={ handleLogout } className="logout">
+                        <NavLink to='/login' onClick={ handleLogout } className="logout">
                             <i className="bi bi-box-arrow-in-left"></i>Logout
-                        </Link>
+                        </NavLink>
                     </li>
                 </ul>
             </nav>

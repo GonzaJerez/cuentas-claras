@@ -2,8 +2,8 @@ import { getAuth, signInWithPopup, signOut, createUserWithEmailAndPassword, upda
 import Swal from 'sweetalert2'
 import { googleAuthProvider } from '../firebase/firebase-config'
 import { types } from '../types/types'
-import { limpiarCategorias, startAgregarCategoriasPorDefecto } from './categoriasActions'
-import { limpiarCuentas, startAgregarCuentasPorDefecto } from './cuentasActions'
+import { limpiarCategorias } from './categoriasActions'
+import { limpiarCuentas } from './cuentasActions'
 import { limpiarMovimientos } from './movsActions'
 
 export const startingLoginWithGoogle = () => {
@@ -11,12 +11,6 @@ export const startingLoginWithGoogle = () => {
         const auth = getAuth()
         const { user } = await signInWithPopup( auth, googleAuthProvider )
         dispatch( login( user.uid, user.displayName ))
-
-        if ( !localStorage.getItem('clientGoogle' ) ) {
-            dispatch( startAgregarCategoriasPorDefecto() )
-            dispatch( startAgregarCuentasPorDefecto() )
-            localStorage.setItem('clientGoogle', true )
-        }
     }
 }
 
@@ -53,12 +47,6 @@ export const startingRegisterWithEmail = ( nombre, email, password ) => {
             const { user } = await createUserWithEmailAndPassword( auth, email, password )
             await updateProfile( user, { displayName: nombre })
             dispatch( login( user.uid, nombre ))
-
-            if ( !localStorage.getItem('clientEmail' ) ) {
-                dispatch( startAgregarCategoriasPorDefecto() )
-                dispatch( startAgregarCuentasPorDefecto() )
-                localStorage.setItem('clientEmail', true )
-            }
 
         } catch (err) {
             if ( err.code === 'auth/email-already-in-use' ) {

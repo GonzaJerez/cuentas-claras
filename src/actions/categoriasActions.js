@@ -80,7 +80,14 @@ export const startCargarCategorias = () => {
             const { uid } = getState().auth;
             const cats = await loadCategorias( uid );
 
-            dispatch( cargarCategorias( cats ))
+            if ( cats.length === 0) {
+                dispatch( startAgregarCategoriasPorDefecto() )
+                dispatch( cargarCategorias( categorias ))
+            }else{
+
+                dispatch( cargarCategorias( cats ))
+            }
+
 
         } catch (err) {
             console.log( err );
