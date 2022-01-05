@@ -258,7 +258,7 @@ export const NuevoIngresoGasto = ({ handleClose }) => {
                     <label htmlFor="cantidad">Cantidad: </label>
                     <div className='cantidad'>
                         $
-                        <input type="number" name="cantidad" value={ formValues.cantidad } onChange={ handleChange } max={ deudaOriginal && deudaOriginal?.cantidad - ( deudaOriginal?.cantidadPagada - activeMov?.cantidad ) }  min={0} placeholder='1000'/>
+                        <input type="number" name="cantidad" value={ formValues.cantidad } onChange={ handleChange } max={ deudaOriginal && deudaOriginal?.cantidad - ( deudaOriginal?.cantidadPagada - activeMov?.cantidad ) }  min={0} step={0.000001} placeholder='1000'/>
                     </div>
                     { activeMov?.idReferencia && <p>La cantidad restante es: { deudaOriginal?.cantidad - ( deudaOriginal?.cantidadPagada - activeMov?.cantidad ) }</p> }
                 </div>

@@ -169,7 +169,7 @@ export const SaldarPrestamo = ({ handleClose }) => {
                     <label htmlFor="cantidadAPagar">Cantidad: </label>
                     <div className='cantidad'>
                         $
-                        <input disabled={ parseInt(formValues.cuotas) - parseInt(formValues.cuotasPagadas) === 1 ? true : false } type="number" name="cantidadAPagar" value={ formValues.cantidadAPagar } max={ parseInt(formValues.cantidad) - parseInt(formValues.cantidadPagada) } min={0} onChange={ handleChange } placeholder={1}/>
+                        <input disabled={ parseInt(formValues.cuotas) - parseInt(formValues.cuotasPagadas) === 1 ? true : false } type="number" name="cantidadAPagar" value={ formValues.cantidadAPagar } max={ parseInt(formValues.cantidad) - parseInt(formValues.cantidadPagada) } min={0} step={0.000001} onChange={ handleChange } placeholder={1}/>
                     </div>
                     <p>Quedarian abonar: $ { activeMov.cantidad - activeMov.cantidadPagada }</p>
                 </div>

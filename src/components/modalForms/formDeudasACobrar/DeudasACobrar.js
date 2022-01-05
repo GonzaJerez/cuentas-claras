@@ -151,7 +151,7 @@ export const DeudasACobrar = ({ handleClose }) => {
                     <label htmlFor="cantidad">Cantidad: </label>
                     <div className='cantidad'>
                         $
-                        <input type="number" name="cantidad" value={ formValues.cantidad } onChange={ handleChange } placeholder='5000' min={0}/>
+                        <input type="number" name="cantidad" value={ formValues.cantidad } onChange={ handleChange } placeholder='5000' min={0} step={0.000001} />
                     </div>
                 </div>
                 <div className='modal__section '>

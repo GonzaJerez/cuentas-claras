@@ -65,7 +65,7 @@ export const CompraActivos = ({ handleClose, handleSubmit, handleDelete, activeM
                     <label htmlFor="cantidad">Cantidad: </label>
                     <div className='cantidad'>
                         $
-                        <input type="number" name="cantidad" value={ formValues.cantidad } onChange={ handleChange } placeholder='1000' min={0}/>
+                        <input type="number" name="cantidad" value={ formValues.cantidad } onChange={ handleChange } placeholder='1000' min={0} step={0.000001} />
                     </div>
                 </div>
                 <UploadFile formValues={ formValues } isLoading={ isLoading } setIsLoading={ setIsLoading }/>
