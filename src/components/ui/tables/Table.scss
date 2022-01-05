@@ -14,6 +14,9 @@
     }
 
     tbody{
+        tr{
+            height: 4rem;
+        }
         th, td{
             font-size: 0.9rem;
             padding: 0.7rem 1%;
@@ -60,6 +63,23 @@
         }
     }
 }
+
+.loading-table-container{
+    height: 150px;
+    display: flex;
+    align-items: center;
+}
+
+.loading-table{
+    background-color: #868e96;
+    line-height: 150px;
+    margin: 0 auto;
+    opacity: 0.5;
+    height: 90%;
+    width: 100%;
+    animation: loading 2s infinite ease-in;
+}
+
 
 @media( max-width: 550px ){
     .table{   

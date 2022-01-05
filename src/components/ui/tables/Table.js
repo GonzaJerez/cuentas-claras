@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { openModal } from '../../../actions/modalActions';
 import { insertarMovimientoActivo } from '../../../actions/movsActions';
 
@@ -7,6 +7,7 @@ import { insertarMovimientoActivo } from '../../../actions/movsActions';
 export const Table = ({ movimientos, cantMostrada, cabecera }) => {
 
     const dispatch = useDispatch();
+    const { loadingMovs } = useSelector(state => state.movs)
 
     const editarModal = ( e, mov ) =>{
         e.stopPropagation();
@@ -34,9 +35,17 @@ export const Table = ({ movimientos, cantMostrada, cabecera }) => {
         ultimosMovimientos = movimientos.slice(0,cantMostrada);
     }
 
+    if ( loadingMovs ) {
+        return(
+            <div className='loading-table-container'>
+                <div className='loading-table'></div>
+            </div>
+        )
+    }
+
     return (
         <>
-            <table className="table table-borderless">
+            <table className="table table-borderless animate__animated animate__fadeIn">
                 <thead>
                     <tr>
                         <th scope="col">{ cabecera[0] }</th>
@@ -57,7 +66,7 @@ export const Table = ({ movimientos, cantMostrada, cabecera }) => {
                             <tr key={ mov.id } className={`table__movimiento ${ mov.estado === 'saldado' ? 'saldado' : 'pendiente'}` } onClick={ e => detalleModal( e, mov ) }>
                                 {
                                     mov.estado !== 'saldado'
-                                    ?   <th scope="row">{ mov.tipo === 'gasto' && '-' }{ new Intl.NumberFormat('en-US', {style: "currency", currency: "USD"}).format( mov.cantidadPagada ? mov.cantidad - mov.cantidadPagada : mov.cantidad ) }</th>
+                                    ?   <th scope="row">{ mov.tipo === 'gasto' && '-' }{ new Intl.NumberFormat('en-US', {style: "currency", currency: "USD", minimumFractionDigits: (mov.cuenta === 'BTC' || mov.cuenta === 'ETH' ) ? 6 : 2 }).format( mov.cantidadPagada ? mov.cantidad - mov.cantidadPagada : mov.cantidad ) }</th>
                                     :   <th scope="row">Saldado</th>
                                 }
                                 

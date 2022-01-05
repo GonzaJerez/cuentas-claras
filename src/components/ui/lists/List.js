@@ -33,7 +33,7 @@ export const List = ({ elementos, isEditing, nomCuenta }) => {
 
         let total = 0;
 
-        if ( sub.monedaValuacion === 'Activos') {
+        if ( sub.monedaValuacion === 'Activos' ) {
             sumarCantidadTotalActivos( movs, cuentas, moneda, pares).cantidadTotalActivos.subcuentas.forEach( el => {
                 if ( el.nombre === sub.subcuenta ) {
                     total = convertidor( el.valor, moneda, pares )
@@ -57,7 +57,7 @@ export const List = ({ elementos, isEditing, nomCuenta }) => {
                     elementos.map( el =>
                         <li key={ el.subcuenta } className="list-group-item d-flex justify-content-between align-items-center">
                             { el.subcuenta }
-                            <span className={`badge bg-secondary bg-${ el.cantidad < 0 ? 'danger': ''}${ el.cantidad > 0 ? 'success': ''}`}>{ new Intl.NumberFormat('en-US', {style: "currency", currency: "USD", minimumFractionDigits: 2 }).format( sumarMontosEnDistintasMonedas( el ) ) }</span>
+                            <span className={`badge bg-secondary bg-${ el.cantidad < 0 ? 'danger': ''}${ el.cantidad > 0 ? 'success': ''}`}>{ new Intl.NumberFormat('en-US', {style: "currency", currency: "USD", minimumFractionDigits: (moneda === 'BTC' || moneda === 'ETH' ) ? 6 : 2 }).format( sumarMontosEnDistintasMonedas( el ) ) }</span>
                             { isEditing && <i className="bi bi-pencil" onClick={ e => openingModal( e, el.subcuenta, el.cantidad )}></i> }
                         </li>
                     )

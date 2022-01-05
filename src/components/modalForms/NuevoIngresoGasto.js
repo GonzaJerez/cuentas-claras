@@ -139,7 +139,7 @@ export const NuevoIngresoGasto = ({ handleClose }) => {
 
         } else if ( typeModal === 'ingreso' ) {
 
-            if ( formValues.cuenta === 'Activos') {
+            if ( formValues.cuenta === 'Activos' || formValues.cuenta === 'Otras criptomonedas') {
                 formValues.cantidad = convertidor([{nombre: monedaValuacion, valor: parseInt(formValues.cantidad) }], 'USD', pares )
                 formValues.monedaValuacion = 'USD';
             }
@@ -226,7 +226,7 @@ export const NuevoIngresoGasto = ({ handleClose }) => {
                 </div>
 
                 {
-                    formValues.cuenta === 'Activos' && 
+                    (formValues.cuenta === 'Activos' || formValues.cuenta === 'Otras criptomonedas') && 
                     <div className='modal__section'>
                         <label htmlFor="monedaValuacion">En que moneda se valua:</label>
                         <select name="monedaValuacion" id="monedaValuacion" value={ monedaValuacion } onChange={ e => setmonedaValuacion( e.target.value ) }>
@@ -258,7 +258,7 @@ export const NuevoIngresoGasto = ({ handleClose }) => {
                     <label htmlFor="cantidad">Cantidad: </label>
                     <div className='cantidad'>
                         $
-                        <input type="number" name="cantidad" value={ formValues.cantidad } onChange={ handleChange } max={ deudaOriginal && deudaOriginal?.cantidad - ( deudaOriginal?.cantidadPagada - activeMov?.cantidad ) }  min={0} step={0.000001} placeholder='1000'/>
+                        <input type="number" name="cantidad" value={ formValues.cantidad } onChange={ handleChange } max={ deudaOriginal && deudaOriginal?.cantidad - ( deudaOriginal?.cantidadPagada - activeMov?.cantidad ) }  min={0} step={0.0000001} placeholder='1000'/>
                     </div>
                     { activeMov?.idReferencia && <p>La cantidad restante es: { deudaOriginal?.cantidad - ( deudaOriginal?.cantidadPagada - activeMov?.cantidad ) }</p> }
                 </div>

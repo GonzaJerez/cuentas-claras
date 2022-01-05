@@ -28,13 +28,13 @@ export const SaldarDeuda = ({ handleClose }) => {
     const handleSubmit = e =>{
         e.preventDefault();
 
-        cuentas.find( cta => cta.nombre === 'Activos' ).subcuentas.forEach( sub => {
+/*         cuentas.find( cta => cta.nombre === 'Activos' ).subcuentas.forEach( sub => {
             if ( sub === formValues.categoria ) {
                 
             }
         })
 
-        
+         */
 
         // Cuando se quiere abonar el total pero no el total de las cuotas
         if ( parseInt(formValues.cantidad) - parseInt(formValues.cantidadPagada) - parseInt( formValues.cantidadAPagar ) === 0 && parseInt(formValues.cuotas) - parseInt(formValues.cuotasPagadas ) - parseInt( formValues.cuotasAPagar ) > 0 ) {
@@ -162,7 +162,7 @@ export const SaldarDeuda = ({ handleClose }) => {
                     <label htmlFor="cantidadAPagar">Cantidad: </label>
                     <div className='cantidad'>
                         $
-                        <input disabled={ parseInt(formValues.cuotas) - parseInt(formValues.cuotasPagadas) === 1 ? true : false } type="number" name="cantidadAPagar" value={ formValues.cantidadAPagar } max={ parseInt(formValues.cantidad) - parseInt(formValues.cantidadPagada) } min={0} step={0.000001} onChange={ handleChange } placeholder={1}/>
+                        <input disabled={ parseInt(formValues.cuotas) - parseInt(formValues.cuotasPagadas) === 1 ? true : false } type="number" name="cantidadAPagar" value={ formValues.cantidadAPagar } max={ parseInt(formValues.cantidad) - parseInt(formValues.cantidadPagada) } min={0} step={0.0000001} onChange={ handleChange } placeholder={1}/>
                     </div>
                     <p>Quedarian abonar: $ { activeMov.cantidad - activeMov.cantidadPagada }</p>
                 </div>

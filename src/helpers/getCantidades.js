@@ -5,16 +5,16 @@ export const sumarCantidadTotalPorCuenta = ( movs, cuentas, cta ) =>{
 
     let cantidadTotalPorCuenta = 0
 
-    movs.filter(el => el.cuenta === cta ).filter( el => el.tipo === 'ingreso').map( el => cantidadTotalPorCuenta += parseInt( el.cantidad ) );
-    movs.filter(el => el.cuenta === cta ).filter( el => el.tipo === 'gasto').map( el => cantidadTotalPorCuenta -= parseInt( el.cantidad ) );
-    movs.filter(el => el.cuenta === cta ).filter( el => el.tipo === 'prestamo').map( el => cantidadTotalPorCuenta += parseInt( el.cantidad ) );
-    movs.filter(el => el.cuenta === cta ).filter( el => el.tipo === 'deudaACobrar').map( el => cantidadTotalPorCuenta -= parseInt( el.cantidad ) );
-    movs.filter( el => el.tipo === 'transferencia').filter( el => el.from.cuenta === cta ).map( el => cantidadTotalPorCuenta -= parseInt( el.cantidad ) );
-    movs.filter( el => el.tipo === 'transferencia').filter( el => el.to.cuenta === cta ).map( el => cantidadTotalPorCuenta += parseInt( el.cantidad ) );
-    movs.filter( el => el.tipo === 'compraActivos').filter( el => el.from.cuenta === cta ).map( el => cantidadTotalPorCuenta -= parseInt( el.cantidad ) );
-    movs.filter( el => el.tipo === 'compraActivos').filter( el => el.to.cuenta === cta ).map( el => cantidadTotalPorCuenta += parseInt( el.cantidad ) );
-    movs.filter( el => el.tipo === 'ventaActivos').filter( el => el.from.cuenta === cta ).map( el => cantidadTotalPorCuenta -= parseInt( el.cantidad ) );
-    movs.filter( el => el.tipo === 'ventaActivos').filter( el => el.to.cuenta === cta ).map( el => cantidadTotalPorCuenta += parseInt( el.cantidad ) );
+    movs.filter(el => el.cuenta === cta ).filter( el => el.tipo === 'ingreso').map( el => cantidadTotalPorCuenta += parseFloat( el.cantidad ) );
+    movs.filter(el => el.cuenta === cta ).filter( el => el.tipo === 'gasto').map( el => cantidadTotalPorCuenta -= parseFloat( el.cantidad ) );
+    movs.filter(el => el.cuenta === cta ).filter( el => el.tipo === 'prestamo').map( el => cantidadTotalPorCuenta += parseFloat( el.cantidad ) );
+    movs.filter(el => el.cuenta === cta ).filter( el => el.tipo === 'deudaACobrar').map( el => cantidadTotalPorCuenta -= parseFloat( el.cantidad ) );
+    movs.filter( el => el.tipo === 'transferencia').filter( el => el.from.cuenta === cta ).map( el => cantidadTotalPorCuenta -= parseFloat( el.cantidad ) );
+    movs.filter( el => el.tipo === 'transferencia').filter( el => el.to.cuenta === cta ).map( el => cantidadTotalPorCuenta += parseFloat( el.cantidad ) );
+    movs.filter( el => el.tipo === 'compraActivos').filter( el => el.from.cuenta === cta ).map( el => cantidadTotalPorCuenta -= parseFloat( el.cantidad ) );
+    movs.filter( el => el.tipo === 'compraActivos').filter( el => el.to.cuenta === cta ).map( el => cantidadTotalPorCuenta += parseFloat( el.cantidad ) );
+    movs.filter( el => el.tipo === 'ventaActivos').filter( el => el.from.cuenta === cta ).map( el => cantidadTotalPorCuenta -= parseFloat( el.cantidad ) );
+    movs.filter( el => el.tipo === 'ventaActivos').filter( el => el.to.cuenta === cta ).map( el => cantidadTotalPorCuenta += parseFloat( el.cantidad ) );
 
     
     movs.filter(el => cuentas.find(el => el.nombre === cta ).subcuentas.includes( el.categoria ) ).filter( el => el.tipo === 'gasto').map( el => cantidadTotalPorCuenta += parseInt( el.cantidad ) );
@@ -35,6 +35,7 @@ export const sumarCantidadEnCuentasActivos = ( movs, cta, subcuentaActivo ) => {
     movs.filter( mov => mov.tipo === 'compraActivos' && mov.from.cuenta === cta && mov.to.subcuenta === subcuentaActivo ).map( el => cantidadTotalPorCuenta.valor += parseInt( el.cantidad ))
     movs.filter( mov => mov.tipo === 'ventaActivos' && mov.to.cuenta === cta && mov.from.subcuenta === subcuentaActivo ).map( el => cantidadTotalPorCuenta.valor -= parseInt( el.cantidad ))
     movs.filter( mov => mov.tipo === 'ingreso' && mov.cuenta === 'Activos' && mov.monedaValuacion === cta && mov.subcuenta === subcuentaActivo ).map( el => cantidadTotalPorCuenta.valor += parseInt( el.cantidad ))
+    movs.filter( mov => mov.tipo === 'ingreso' && mov.cuenta === 'Otras criptomonedas' && mov.monedaValuacion === cta && mov.subcuenta === subcuentaActivo ).map( el => cantidadTotalPorCuenta.valor += parseInt( el.cantidad ))
 
     return cantidadTotalPorCuenta;
     
@@ -78,7 +79,7 @@ export const sumarCantidadPorSubcuenta = ( movs, cuentas, cta, pares ) => {
         if ( monedaValuacion === '' ) {
             monedaValuacion = cta
         }
-        if ( cta === 'Activos' ) {
+        if ( cta === 'Activos' || cta === 'Otras criptomonedas' ) {
             monedaValuacion = 'USD'
         }
 
@@ -97,12 +98,11 @@ export const sumarCantidadPorSubcuenta = ( movs, cuentas, cta, pares ) => {
 export const sumarCantidadTotal = ( movs, cuentas, state, pares ) =>{
     let cantidadTotal = []
     let cantidadTotalActivos = { nombre: 'Activos', valor: [] }
-    // let cantidadPrueba = { nombre: 'Activos', subcuentas: [] }
 
     
     cuentas.forEach( cta => {
 
-        if ( cta.nombre !== 'Activos' ) {
+        if ( cta.nombre !== 'Activos' && cta.nombre !== 'Otras criptomonedas' ) {
             
             cantidadTotal.push( sumarCantidadTotalPorCuenta( movs, cuentas, cta.nombre ) )
             
@@ -110,7 +110,7 @@ export const sumarCantidadTotal = ( movs, cuentas, state, pares ) =>{
 
                 
                     
-                if ( cta !== 'Activos' ) {
+                if ( cta.nombre !== 'Activos' && cta.nombre !== 'Otras criptomonedas' ) {
                     // Devuelve objeto q rastrea los movimientos de "Activos" y va sumando en la cuenta q corresponda
                     cantidadTotalActivos.valor.push( sumarCantidadEnCuentasActivos( movs, cta ))
                 }
@@ -155,4 +155,34 @@ export const sumarCantidadTotalActivos = ( movs, cuentas, state, pares ) =>{
     })
 
     return { cantidadTotalActivos, cantidadTotalConvertida }
+}
+
+export const sumarCantidadTotalOtrasCriptomonedas = ( movs, cuentas, state, pares ) =>{
+
+    let cantidadTotalOtrasCriptomonedas = { nombre: 'Otras criptomonedas', subcuentas: [] }
+
+    cuentas.find( cta => cta.nombre === 'Otras criptomonedas' )?.subcuentas.map( sub => {
+
+        const subcuenta = {
+            nombre: sub,
+            valor: []
+        }
+
+        cuentas.filter( cuenta => cuenta.nombre !== 'Otras criptomonedas' ).forEach( el => {
+
+            subcuenta.valor.push( sumarCantidadEnCuentasActivos( movs, el.nombre, sub ) )
+        })
+
+        return cantidadTotalOtrasCriptomonedas.subcuentas.push(subcuenta)
+        
+    })
+
+
+    let cantidadTotalConvertida = 0;
+
+    cantidadTotalOtrasCriptomonedas.subcuentas.forEach( sub => {
+        cantidadTotalConvertida += convertidor( sub.valor, state, pares )
+    })
+
+    return { cantidadTotalOtrasCriptomonedas, cantidadTotalConvertida }
 }

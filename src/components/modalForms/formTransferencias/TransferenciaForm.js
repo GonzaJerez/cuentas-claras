@@ -74,7 +74,7 @@ export const TransferenciaForm = ({ handleClose, handleSubmit, handleDelete, act
                     <label htmlFor="cantidad">Cantidad: </label>
                     <div className='cantidad'>
                         $
-                        <input type="number" name="cantidad" value={ formValues.cantidad } onChange={ handleChange } placeholder='1000' min={0} step={0.000001} />
+                        <input type="number" name="cantidad" value={ formValues.cantidad } onChange={ handleChange } placeholder='1000' min={0} step={0.0000001} />
                     </div>
                 </div>
                 <UploadFile formValues={ formValues } isLoading={ isLoading } setIsLoading={ setIsLoading }/>

@@ -26,7 +26,7 @@ export const CategoriesScreen = () => {
     const { movs } = useSelector(state => state.movs )
     const { categorias } = useSelector(state => state.cats )
 
-    const movimientos = movs.filter( el => meses[ new Date( el.fecha ).getMonth()] === mesFiltro ).filter( el => el.tipo !== 'deuda' && el.tipo !== 'prestamo' && el.tipo !== 'transferencia');
+    const movimientos = movs.filter( el => meses[ new Date( el.fecha ).getMonth()] === mesFiltro ).filter( el => el.tipo !== 'deuda' && el.tipo !== 'prestamo' && el.tipo !== 'transferencia' && el.tipo !== 'deudaACobrar' && el.tipo !== 'compraActivos' && el.tipo !== 'ventaActivos');
     
     const categoriasTotales = categorias.sort( (a,b) => a.nombre > b.nombre ? 1 : -1 )
 

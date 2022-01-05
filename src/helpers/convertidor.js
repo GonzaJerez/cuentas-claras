@@ -26,7 +26,7 @@ export const convertidor = ( array, state, pares ) =>{
     
             if ( coin.includes( actual.nombre ) && fiat.includes( state ) ) {
 
-                actual = actual.valor * pares.find( par => par.nombre === actual.nombre + '/' + state ).valor;        
+                actual = actual.valor * pares.find( par => par.nombre === actual.nombre + '/' + state )?.valor;        
                 return acumulador + actual;
             }
         }

@@ -2,7 +2,6 @@ import { Table } from "../../ui/tables/Table"
 
 export const LastMovs = ({ movimientos }) => {
 
-
     return (
         <section className='tabla-general'>
 

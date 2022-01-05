@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { insertarCuentaActiva } from "../../../actions/cuentasActions";
 import { openModal } from "../../../actions/modalActions";
 import { List } from "../lists/List";
-import { sumarCantidadTotalPorCuenta, sumarCantidadPorSubcuenta, sumarCantidadTotalActivos } from '../../../helpers/getCantidades'
+import { sumarCantidadTotalPorCuenta, sumarCantidadPorSubcuenta, sumarCantidadTotalActivos, sumarCantidadTotalOtrasCriptomonedas } from '../../../helpers/getCantidades'
 
 export const AcordeonList = () => {
 
@@ -50,8 +50,14 @@ export const AcordeonList = () => {
                     <div className="accordion-item" key={ cta.nombre }>
                         <h2 className="accordion-header" id="panelsStayOpen-headingOne">
                             <button onClick={ (e) => handleToggleAccordion( e.target, cta.nombre ) } className="accordion-button d-flex justify-content-between align-items-center collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
-                                { cta.nombre === 'BTC' ? 'Bitcoin' : cta.nombre }
-                                <span onClick={ e => e.target.parentElement.click() } className={`badge bg-secondary bg-${ sumarCantidadTotalPorCuenta( movs, cuentas, cta.nombre ).valor < 0 ? 'danger': ''}${ sumarCantidadTotalPorCuenta( movs, cuentas, cta.nombre ).valor > 0 ? 'success': ''}`}>{ new Intl.NumberFormat('en-US', {style: "currency", currency: "USD"/* , maximumFractionDigits: 0 */}).format( cta.nombre === 'Activos' ? sumarCantidadTotalActivos( movs, cuentas, 'USD', pares ).cantidadTotalConvertida : sumarCantidadTotalPorCuenta( movs, cuentas, cta.nombre ).valor )  }</span>
+                                { cta.nombre }
+                                <span onClick={ e => e.target.parentElement.click() } className={`badge bg-secondary bg-${ sumarCantidadTotalPorCuenta( movs, cuentas, cta.nombre ).valor < 0 ? 'danger': ''}${ sumarCantidadTotalPorCuenta( movs, cuentas, cta.nombre ).valor > 0 ? 'success': ''}`}>{ new Intl.NumberFormat('en-US', {style: "currency", currency: "USD", minimumFractionDigits: (cta.nombre === 'BTC' || cta.nombre === 'ETH' ) ? 6 : 2}).format( 
+                                    cta.nombre === 'Activos'  
+                                        ? sumarCantidadTotalActivos( movs, cuentas, 'USD', pares ).cantidadTotalConvertida 
+                                        : (cta.nombre === 'Otras criptomonedas')
+                                            ? sumarCantidadTotalOtrasCriptomonedas( movs, cuentas, 'USD', pares ).cantidadTotalConvertida 
+                                            : sumarCantidadTotalPorCuenta( movs, cuentas, cta.nombre ).valor )
+                                }</span>
                                 { isEditing && <i onClick={ e => openingModal( e, cta, sumarCantidadTotalPorCuenta( movs, cuentas, cta.nombre ).valor ) } className="bi bi-pencil"></i> }
                                 
                             </button>

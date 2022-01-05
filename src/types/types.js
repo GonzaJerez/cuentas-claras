@@ -16,6 +16,8 @@ export const types = {
     editarNombreSubcuenta: '[Movimientos] Editar Nombre Subcuenta',
     limpiarMovimientos: '[Movimientos] Limpiar Movimientos',
     cargarMovimientos: '[Movimientos] Cargar Movimientos',
+    startLoadingMovs: '[Movimientos] Start Loading Movs',
+    finishLoadingMovs: '[Movimientos] Finish Loading Movs',
 
     openModal: '[Modal] Open Modal',
     closeModal: '[Modal] Close Modal',

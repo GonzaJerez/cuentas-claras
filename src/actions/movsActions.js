@@ -72,7 +72,9 @@ export const eliminarMovimientoActivo = () => (
 export const startCargarMovimientos = () => {
     return async( dispatch, getState ) => {
         const { uid } = getState().auth;
+        dispatch( startLoadingMovs() )
         const movs = await loadMovs( uid );
+        dispatch( finishLoadingMovs() )
         dispatch( cargarMovimientos( movs ))
     }
 }
@@ -162,13 +164,6 @@ export const startEditarNombreCuenta = cta => {
     }
 }
 
-/* export const editarNombreCuenta = cta =>(
-    {
-        type: types.editarNombreCuenta,
-        payload: cta
-    }
-) */
-
 export const startEditarNombreSubcuenta = sub => {
     return async( dispatch, getState ) => {
         const { uid } = getState().auth;
@@ -197,13 +192,6 @@ export const startEditarNombreSubcuenta = sub => {
     }
 }
 
-/* export const editarNombreSubcuenta = sub => (
-    {
-        type: types.editarNombreSubcuenta,
-        payload: sub
-    }
-) */
-
 export const startEditarMontosDeuda = deuda => {
     return async( dispatch, getState ) => {
         const { uid } = getState().auth;
@@ -225,13 +213,6 @@ export const startEditarMontosDeuda = deuda => {
     }
 }
 
-/* export const editarMontosDeuda = deuda =>(
-{
-    type: types.editarMontosDeuda,
-    payload: deuda
-}
-) */
-
 export const startEliminarCuotaDeuda = deuda => {
     return async( dispatch, getState ) => {
         const { uid } = getState().auth;
@@ -251,16 +232,21 @@ export const startEliminarCuotaDeuda = deuda => {
         })
     }
 }
-
-/* export const eliminarCuotaDeuda = deuda =>(
-    {
-        type: types.eliminarCuotaDeuda,
-        payload: deuda
-    }
-) */
     
 export const limpiarMovimientos = () => (
     {
         type: types.limpiarMovimientos
     }
 )
+
+const startLoadingMovs = () => (
+    {
+        type: types.startLoadingMovs
+    }
+) 
+
+const finishLoadingMovs = () => (
+    {
+        type: types.finishLoadingMovs
+    }
+) 

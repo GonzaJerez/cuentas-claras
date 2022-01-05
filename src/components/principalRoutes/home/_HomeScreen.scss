@@ -79,6 +79,39 @@
 
 }
 
+.loading-container{
+    height: 250px;
+    margin-bottom: 2rem;
+}
+
+.loading-patrimonio-view{
+    background-color: #868e96;
+    border-radius: 2px;
+    height: 30%;
+    margin: 0 auto;
+    margin-top: 1rem;
+    opacity: 0.5;
+    width: 80%;
+    animation: loading 2s infinite ease-in;
+}
+
+.loading-cuentas-home{
+    background-color: #868e96;
+    border-radius: 2px;
+    height: 50%;
+    margin: 0 auto;
+    margin-top: 1rem;
+    opacity: 0.5;
+    width: 60%;
+    animation: loading 2s infinite ease-in;
+}
+
+@keyframes loading{
+    50%{
+        opacity: 0.2;
+    }
+}
+
 
 @media( min-width: 1200px){
     .patrimonio__view{
