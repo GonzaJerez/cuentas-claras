@@ -1,20 +1,17 @@
 
 
 export const convertidor = ( array, state, pares ) =>{
-    // console.log( array );
 
     const coin = [ 'BTC', 'ETH', 'USD', 'XRP', 'ADA']
     const fiat = ['ARS', 'USD', 'MXN']
         
     return array.reduce( (acumulador, actual ) => {
-        // console.log( actual );
 
         if ( actual.valor !== 0) {
             
             if ( actual.nombre === state ) {
                 
                 actual = actual.valor
-                // console.log( actual );
                 return acumulador + actual;
             }
     

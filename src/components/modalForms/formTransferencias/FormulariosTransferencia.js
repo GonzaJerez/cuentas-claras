@@ -30,7 +30,7 @@ export const FormulariosTransferencia = ({ handleClose, modo, typeModal }) => {
 
 
     const [ formValues, handleChange, handleChangeCalendar, handleChangeFrom, handleChangeTo ] = useForm( activeMov ? activeMov : {
-        fecha: Date.now(),
+        fecha: new Date(),
         from: {
             cuenta: nombreCuentas[0],
             subcuenta: '-'
@@ -47,6 +47,8 @@ export const FormulariosTransferencia = ({ handleClose, modo, typeModal }) => {
 
     const handleSubmit = e => {
         e.preventDefault();
+
+        formValues.fecha = Date.parse(formValues.fecha)
 
         // Validacion formulario
         const respForm = isFormValid( formValues );
@@ -165,13 +167,12 @@ export const FormulariosTransferencia = ({ handleClose, modo, typeModal }) => {
                     formValues.cantidad = cantidadRestanteEnCuenta;
     
                     dispatch( startNuevoMovimiento({
-                        id: Date.now(),
                         cantidad: Math.abs( restaEntreCantidadEnCuentaYCantidadVendida ),
                         tipo: 'ingreso',
                         categoria: 'Ganancia por ventas',
                         cuenta: formValues.to.cuenta,
                         subcuenta: formValues.to.subcuenta,
-                        fecha: Date.now(),
+                        fecha: new Date(),
                         comprobante: formValues.url,
                         descripcion: `Venta de ${ formValues.from.subcuenta }`
                     }, 'nuevoIngreso'))

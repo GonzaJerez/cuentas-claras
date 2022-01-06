@@ -221,7 +221,7 @@ export const startEliminarCuotaDeuda = deuda => {
 
         movs.forEach( mov => {
             if ( mov.id === deuda.idReferencia ) {
-                dispatch( actualizarMovimiento( {
+                dispatch( startActualizarMovimiento( {
                     ...mov.data(),
                     id: mov.id,
                     cantidadPagada: ( mov.data().cantidadPagada - deuda.cantidadAnterior ),

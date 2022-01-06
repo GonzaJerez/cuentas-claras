@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/cuentas-claras/static/css/main.f965cae7.chunk.css",
-    "main.js": "/cuentas-claras/static/js/main.7986843d.chunk.js",
-    "main.js.map": "/cuentas-claras/static/js/main.7986843d.chunk.js.map",
+    "main.js": "/cuentas-claras/static/js/main.d9bf06c7.chunk.js",
+    "main.js.map": "/cuentas-claras/static/js/main.d9bf06c7.chunk.js.map",
     "runtime-main.js": "/cuentas-claras/static/js/runtime-main.da728d4c.js",
     "runtime-main.js.map": "/cuentas-claras/static/js/runtime-main.da728d4c.js.map",
     "static/css/2.0514c5e1.chunk.css": "/cuentas-claras/static/css/2.0514c5e1.chunk.css",
@@ -18,6 +18,6 @@
     "static/css/2.0514c5e1.chunk.css",
     "static/js/2.1e8fc9c3.chunk.js",
     "static/css/main.f965cae7.chunk.css",
-    "static/js/main.7986843d.chunk.js"
+    "static/js/main.d9bf06c7.chunk.js"
   ]
 }

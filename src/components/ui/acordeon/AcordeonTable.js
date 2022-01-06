@@ -4,7 +4,6 @@ import { openModal } from "../../../actions/modalActions";
 import { Table } from "../tables/Table"
 
 export const AcordeonTable = ({ categorias, tableElements }) => {
-    console.log( tableElements );
 
     const dispatch = useDispatch();
     const { isEditing } = useSelector(state => state.cats);

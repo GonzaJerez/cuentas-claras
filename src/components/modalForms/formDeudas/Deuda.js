@@ -25,7 +25,7 @@ export const Deuda = ({ handleClose }) => {
     const { activeMov, nombreCuentas, nombreCategorias, cuentas } = useManySelectors( 'gasto' )
 
     const [ formValues, handleChange, handleChangeCalendar ] = useForm( activeMov ? activeMov : {
-        fecha: Date.now(),
+        fecha: new Date(),
         cuenta: nombreCuentas[0],
         prestador: '',
         tipo: 'deuda',
@@ -40,6 +40,8 @@ export const Deuda = ({ handleClose }) => {
 
     const handleSubmit = e =>{
         e.preventDefault();
+
+        formValues.fecha = Date.parse(formValues.fecha)
 
         // Validacion formulario
         const respForm = isFormValid( formValues );
@@ -100,7 +102,6 @@ export const Deuda = ({ handleClose }) => {
         } else {
             dispatch( startNuevoMovimiento( {
                 ...formValues,
-                id: Date.now()
              }, 'nuevaDeuda' ));
             Swal.fire('Nueva deuda', 'Movimiento creado correctamente', 'success')
         }

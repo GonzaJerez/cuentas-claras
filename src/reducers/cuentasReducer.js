@@ -31,7 +31,6 @@ export const cuentasReducer = ( state= initialState, action ) => {
             }
 
         case types.editarCuenta:
-            console.log( action.payload);
             return{
                 ...state,
                 cuentas: state.cuentas.map( cta => cta.id === action.payload.id ? action.payload : cta )

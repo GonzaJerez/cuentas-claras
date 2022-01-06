@@ -22,7 +22,7 @@ export const DeudasACobrar = ({ handleClose }) => {
     const { activeMov, nombreCuentas } = useManySelectors()
 
     const [ formValues, handleChange, handleChangeCalendar ] = useForm( activeMov ? activeMov : {
-        fecha: Date.now(),
+        fecha: new Date(),
         cuenta: nombreCuentas[0],
         subcuenta: cuentas.find( el => el.nombre === nombreCuentas[0]).subcuentas[0],
         cantidad: 0,
@@ -37,6 +37,8 @@ export const DeudasACobrar = ({ handleClose }) => {
 
     const handleSubmit = e =>{
         e.preventDefault();
+
+        formValues.fecha = Date.parse(formValues.fecha)
 
         // Validacion formulario
         const respForm = isFormValid( formValues );

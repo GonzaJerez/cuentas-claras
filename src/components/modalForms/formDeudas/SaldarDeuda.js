@@ -28,6 +28,8 @@ export const SaldarDeuda = ({ handleClose }) => {
     const handleSubmit = e =>{
         e.preventDefault();
 
+        formValues.fecha = Date.parse(formValues.fecha)
+
 /*         cuentas.find( cta => cta.nombre === 'Activos' ).subcuentas.forEach( sub => {
             if ( sub === formValues.categoria ) {
                 
@@ -80,7 +82,7 @@ export const SaldarDeuda = ({ handleClose }) => {
         dispatch( startActualizarMovimiento( activeMov ))
             
         dispatch( startNuevoMovimiento( {
-            id: Date.now(),
+            id: new Date(),
             idReferencia: formValues.id,
             fecha: formValues.fecha,
             cantidad: formValues.cantidadAPagar,

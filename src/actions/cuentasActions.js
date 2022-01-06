@@ -95,7 +95,6 @@ export const agregarCuenta = cuenta => (
 )
 
 export const startAgregarSubcuenta = cuenta => {
-    console.log( cuenta );
     return async ( dispatch, getState ) => {
         try {
             const { uid } = getState().auth;
@@ -126,7 +125,6 @@ export const startEditarCuenta = cuenta => {
             delete cuentaToFirestore.id
             delete cuentaToFirestore.cantidad
             delete cuentaToFirestore.nuevaCuenta
-            console.log( cuentaToFirestore );
     
             await updateDoc( doc( db, `${ uid }/app/cuentas/${ cuenta.id }` ), cuentaToFirestore )
             
@@ -202,7 +200,6 @@ export const eliminarCuenta = id => (
 )
 
 export const startEliminarSubcuenta = sub => {
-    console.log( sub );
     return async( dispatch, getState ) => {
         try {
             const { uid } = getState().auth;

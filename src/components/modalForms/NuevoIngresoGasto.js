@@ -39,7 +39,7 @@ export const NuevoIngresoGasto = ({ handleClose }) => {
         descripcion: '',
         url: '',
     })
-    formValues.fecha = new Date( formValues.fecha )
+    // formValues.fecha = new Date( formValues.fecha )
 
     // Referencia tanto a deudas como a prestamos
     const deudaOriginal = activeMov?.idReferencia && movs.find( el => el.id === activeMov.idReferencia );
@@ -145,7 +145,6 @@ export const NuevoIngresoGasto = ({ handleClose }) => {
             }
             
             dispatch( startNuevoMovimiento( {
-                // id: Date.now(),
                 tipo: typeModal,
                 ...formValues
             }, 'nuevoIngreso' ))

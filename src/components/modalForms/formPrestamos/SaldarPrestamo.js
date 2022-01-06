@@ -28,6 +28,8 @@ export const SaldarPrestamo = ({ handleClose }) => {
     const handleSubmit = e =>{
         e.preventDefault();
 
+        formValues.fecha = Date.parse(formValues.fecha)
+
         // Cuando se quiere abonar el total pero no el total de las cuotas
         if ( parseInt(formValues.cantidad) - parseInt(formValues.cantidadPagada) - parseInt( formValues.cantidadAPagar ) === 0 && parseInt(formValues.cuotas) - parseInt(formValues.cuotasPagadas ) - parseInt( formValues.cuotasAPagar ) > 0 ) {
             
@@ -68,13 +70,13 @@ export const SaldarPrestamo = ({ handleClose }) => {
         activeMov.cuotasPagadas = formValues.cuotasPagadas + parseInt(formValues.cuotasAPagar);  
         activeMov.cantidadPagada = formValues.cantidadPagada + parseInt(formValues.cantidadAPagar);
         activeMov.estado = ( formValues.cuotas - formValues.cuotasPagadas - formValues.cuotasAPagar ) > 0 ? 'pendiente' : 'saldado'
+        activeMov.fecha = Date.parse(activeMov.fecha)
 
         dispatch( startActualizarMovimiento( activeMov ))
 
         if ( activeMov.tipo === 'prestamo' ) {
                 
             dispatch( startNuevoMovimiento( {
-                id: Date.now(),
                 idReferencia: formValues.id,
                 fecha: formValues.fecha,
                 cantidad: formValues.cantidadAPagar,
@@ -90,7 +92,6 @@ export const SaldarPrestamo = ({ handleClose }) => {
         } else if ( activeMov.tipo === 'deudaACobrar' ) {
             
             dispatch( startNuevoMovimiento( {
-                id: Date.now(),
                 idReferencia: formValues.id,
                 fecha: formValues.fecha,
                 cantidad: formValues.cantidadAPagar,
