@@ -236,22 +236,44 @@ export const NuevoIngresoGasto = ({ handleClose }) => {
                 }
                 
                 <div className='modal__section motivo'>
-                    <label htmlFor="motivo">Motivo: </label>
-                    <select disabled={ activeMov?.idReferencia ? true : false } name="categoria" value={ formValues.categoria } onChange={ handleChange } >{
-                        nombreCategorias.map( el => <option key={ el } value={ el }>{ el }</option> )
-                    }
-                    <option value="nuevaCategoria">...nueva categoria</option>
-                    </select>
                     {
-                        formValues.categoria === 'nuevaCategoria' && 
-                                <>
-                                    <label htmlFor="nuevaCategoria">Nombre nueva categoria:</label>
-                                    <input id='nuevaCategoria' name='nombre' value={ nuevaCategoria.nombre } onChange={ e => setNuevaCategoria({...nuevaCategoria, [e.target.name]: e.target.value } )} autoFocus type="text" placeholder='Ej. Comida, Boliche, Sueldo' />
-                                    <label htmlFor="nuevoSector">Sector:</label>
-                                    <input id='nuevoSector' name='sector' value={ nuevaCategoria.sector } onChange={ e => setNuevaCategoria( {...nuevaCategoria, [e.target.name]: e.target.value } )} type="text" placeholder='Ej. Hogar, Higiene, Salud' />
-
-                                </>
+                        formValues.idReferencia
+                            ?
+                                formValues.aQuien 
+                                    ?   <>
+                                            <label htmlFor="prestador">Prestador: </label>
+                                            <div className='prestador'>
+                                                <input disabled type="text" name="aQuien" value={ formValues.aQuien } onChange={ handleChange } placeholder='Nombre'/>
+                                            </div>
+                                        </>
+                                    
+                                    :   <>
+                                            <label htmlFor="tomador">Tomador: </label>
+                                            <div className='tomador'>
+                                                <input disabled type="text" name="deQuien" value={ formValues.deQuien } onChange={ handleChange } placeholder='Nombre'/>
+                                            </div>
+                                        </>
+                            :
+                            <>
+                                <label htmlFor="motivo">Motivo: </label>
+                                <select disabled={ activeMov?.idReferencia ? true : false } name="categoria" value={ formValues.categoria } onChange={ handleChange } >{
+                                    nombreCategorias.map( el => <option key={ el } value={ el }>{ el }</option> )
+                                }
+                                <option value="nuevaCategoria">...nueva categoria</option>
+                                </select>
+                                {
+                                    formValues.categoria === 'nuevaCategoria' && 
+                                            <>
+                                                <label htmlFor="nuevaCategoria">Nombre nueva categoria:</label>
+                                                <input id='nuevaCategoria' name='nombre' value={ nuevaCategoria.nombre } onChange={ e => setNuevaCategoria({...nuevaCategoria, [e.target.name]: e.target.value } )} autoFocus type="text" placeholder='Ej. Comida, Boliche, Sueldo' />
+                                                <label htmlFor="nuevoSector">Sector:</label>
+                                                <input id='nuevoSector' name='sector' value={ nuevaCategoria.sector } onChange={ e => setNuevaCategoria( {...nuevaCategoria, [e.target.name]: e.target.value } )} type="text" placeholder='Ej. Hogar, Higiene, Salud' />
+            
+                                            </>
+                                }
+                            </>
                     }
+                    
                 </div>
                 <div className='modal__section '>
                     <label htmlFor="cantidad">Cantidad: </label>

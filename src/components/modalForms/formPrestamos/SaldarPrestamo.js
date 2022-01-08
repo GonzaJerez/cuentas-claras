@@ -78,7 +78,7 @@ export const SaldarPrestamo = ({ handleClose }) => {
                 
             dispatch( startNuevoMovimiento( {
                 idReferencia: formValues.id,
-                fecha: formValues.fecha,
+                fecha: Date.now(),
                 cantidad: formValues.cantidadAPagar,
                 cuenta: formValues.cuenta,
                 subcuenta: formValues.subcuenta,
@@ -93,7 +93,7 @@ export const SaldarPrestamo = ({ handleClose }) => {
             
             dispatch( startNuevoMovimiento( {
                 idReferencia: formValues.id,
-                fecha: formValues.fecha,
+                fecha: Date.now(),
                 cantidad: formValues.cantidadAPagar,
                 cuenta: formValues.cuenta,
                 subcuenta: formValues.subcuenta,

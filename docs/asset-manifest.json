@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/cuentas-claras/static/css/main.f965cae7.chunk.css",
-    "main.js": "/cuentas-claras/static/js/main.d9bf06c7.chunk.js",
-    "main.js.map": "/cuentas-claras/static/js/main.d9bf06c7.chunk.js.map",
+    "main.css": "/cuentas-claras/static/css/main.c061c479.chunk.css",
+    "main.js": "/cuentas-claras/static/js/main.b6a5b750.chunk.js",
+    "main.js.map": "/cuentas-claras/static/js/main.b6a5b750.chunk.js.map",
     "runtime-main.js": "/cuentas-claras/static/js/runtime-main.da728d4c.js",
     "runtime-main.js.map": "/cuentas-claras/static/js/runtime-main.da728d4c.js.map",
     "static/css/2.0514c5e1.chunk.css": "/cuentas-claras/static/css/2.0514c5e1.chunk.css",
@@ -10,14 +10,14 @@
     "static/js/2.1e8fc9c3.chunk.js.map": "/cuentas-claras/static/js/2.1e8fc9c3.chunk.js.map",
     "index.html": "/cuentas-claras/index.html",
     "static/css/2.0514c5e1.chunk.css.map": "/cuentas-claras/static/css/2.0514c5e1.chunk.css.map",
-    "static/css/main.f965cae7.chunk.css.map": "/cuentas-claras/static/css/main.f965cae7.chunk.css.map",
+    "static/css/main.c061c479.chunk.css.map": "/cuentas-claras/static/css/main.c061c479.chunk.css.map",
     "static/js/2.1e8fc9c3.chunk.js.LICENSE.txt": "/cuentas-claras/static/js/2.1e8fc9c3.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.da728d4c.js",
     "static/css/2.0514c5e1.chunk.css",
     "static/js/2.1e8fc9c3.chunk.js",
-    "static/css/main.f965cae7.chunk.css",
-    "static/js/main.d9bf06c7.chunk.js"
+    "static/css/main.c061c479.chunk.css",
+    "static/js/main.b6a5b750.chunk.js"
   ]
 }

@@ -84,7 +84,7 @@ export const SaldarDeuda = ({ handleClose }) => {
         dispatch( startNuevoMovimiento( {
             id: new Date(),
             idReferencia: formValues.id,
-            fecha: formValues.fecha,
+            fecha: Date.now(),
             cantidad: formValues.cantidadAPagar,
             cuenta: formValues.cuenta,
             subcuenta: formValues.subcuenta,

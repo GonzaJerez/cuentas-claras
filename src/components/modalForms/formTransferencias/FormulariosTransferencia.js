@@ -172,7 +172,7 @@ export const FormulariosTransferencia = ({ handleClose, modo, typeModal }) => {
                         categoria: 'Ganancia por ventas',
                         cuenta: formValues.to.cuenta,
                         subcuenta: formValues.to.subcuenta,
-                        fecha: new Date(),
+                        fecha: Date.now(),
                         comprobante: formValues.url,
                         descripcion: `Venta de ${ formValues.from.subcuenta }`
                     }, 'nuevoIngreso'))

@@ -249,20 +249,26 @@
      
 }
 
-@media( max-height: 800px) and ( min-width: 700px ) {
+@media( max-height: 625px) and ( min-width: 700px ) {
     .login__screen{
-        padding-top: 5rem;
+        padding-top: 3.8rem;
     }
     .auth__container{
-        padding-top: 10%;
+        padding-top: 7%;
 
         h1{
             margin-bottom: 0px;
         }
 
         form{
+            padding-top: 0;
+
             .form-control{
                 padding-top: 1rem;
+            }
+
+            .submit{
+                margin-top: 0;
             }
         }
     }

@@ -203,7 +203,6 @@ export const startEditarMontosDeuda = deuda => {
                 dispatch( startActualizarMovimiento( {
                     ...mov.data(),
                     id: mov.id,
-                    subcuenta: deuda.subcuenta,
                     cantidadPagada: ( mov.data().cantidadPagada - deuda.cantidadAnterior + deuda.cantidadNueva ),
                     cuotasPagadas: ( mov.data().cuotasPagadas - deuda.cuotasAnterior + deuda.cuotasNuevas ),
                     estado: ( mov.data().cantidad - (mov.data().cantidadPagada - deuda.cantidadAnterior) - deuda.cantidadNueva) > 0 ? 'pendiente' : 'saldado'
