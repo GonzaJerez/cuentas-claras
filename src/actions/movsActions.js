@@ -123,6 +123,7 @@ export const eliminarMovimiento = id => (
 )
 
 export const startEditarNombreCategoria = cat => {
+    console.log( cat );
     return async( dispatch, getState ) =>{
         const { uid } = getState().auth;
 
@@ -131,7 +132,7 @@ export const startEditarNombreCategoria = cat => {
         movs.forEach( mov => {
             if ( mov.data().categoria === cat.categoriaActual ) {
 
-                dispatch( startActualizarMovimiento( {...mov.data(), id: mov.id, categoria: cat.nuevaCategoria } ) )
+                dispatch( startActualizarMovimiento( {...mov.data(), id: mov.id, categoria: cat.nombre } ) )
             }
         })
     }

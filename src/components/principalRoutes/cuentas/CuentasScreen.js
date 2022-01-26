@@ -21,6 +21,8 @@ export const CuentasScreen = () => {
 
     const nombreCuentas = cuentas.map( el => el.nombre )
 
+    // const botonEditarVisible = cuentas.length > 6 ? true : false
+
     return (
         <div className='container-view'>
             <h1>Cuentas</h1>

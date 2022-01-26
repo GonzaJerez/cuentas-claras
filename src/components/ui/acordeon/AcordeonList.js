@@ -43,6 +43,18 @@ export const AcordeonList = () => {
 
     }
 
+    const excluirCuentasPredeterminadas = cta =>{
+
+        if ( cta === 'ARS') return false
+        if ( cta === 'Activos') return false
+        if ( cta === 'BTC') return false
+        if ( cta === 'ETH') return false
+        if ( cta === 'Otras criptomonedas') return false
+        if ( cta === 'USD') return false
+
+        return true
+    }
+
     return (
         <div className="accordion accordion-list" id="accordionPanelsStayOpenExample">
             {
@@ -58,7 +70,7 @@ export const AcordeonList = () => {
                                             ? sumarCantidadTotalOtrasCriptomonedas( movs, cuentas, 'USD', pares ).cantidadTotalConvertida 
                                             : sumarCantidadTotalPorCuenta( movs, cuentas, cta.nombre ).valor )
                                 }</span>
-                                { isEditing && <i onClick={ e => openingModal( e, cta, sumarCantidadTotalPorCuenta( movs, cuentas, cta.nombre ).valor ) } className="bi bi-pencil"></i> }
+                                { (isEditing && excluirCuentasPredeterminadas( cta.nombre )) && <i onClick={ e => openingModal( e, cta, sumarCantidadTotalPorCuenta( movs, cuentas, cta.nombre ).valor ) } className="bi bi-pencil"></i> }
                                 
                             </button>
                         </h2>

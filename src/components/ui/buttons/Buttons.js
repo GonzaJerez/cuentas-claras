@@ -63,30 +63,22 @@ export const Buttons = ({ botonEditarVisible= false, ruta }) => {
                               : <button className='buttons__close' onClick={ openVistaButtons }><i className="bi bi-x"></i></button>
             }
             <div className={`vista-buttons ${ isButtonsOpen ? 'visible' : '' }`}>
-                {/* <div className='buttons__cubreBoton'> */}
+                
                     <button onClick={ openingModal } value='ingreso' className='btn btn-menu'>Nuevo ingreso<i onClick={ e => {e.stopPropagation(); e.target.parentElement.click()} } className="bi bi-graph-up-arrow"></i></button>
-                {/* </div> */}
-                {/* <div className='buttons__cubreBoton'> */}
+                
                     <button onClick={ openingModal } value='transferencia' className='btn btn-menu'>Transferir entre cuentas<i onClick={ e => {e.stopPropagation(); e.target.parentElement.click()} } className="bi bi-arrow-left-right"></i></button>
-                {/* </div> */}
-                {/* <div className='buttons__cubreBoton'> */}
+                
                     <button onClick={ openingModal } value='gasto' className='btn btn-menu'>Nuevo gasto<i onClick={ e => {e.stopPropagation(); e.target.parentElement.click()} } className="bi bi-graph-down-arrow"></i></button>
-                {/* </div> */}
-                {/* <div className='buttons__cubreBoton'> */}
+                
                     <button onClick={ openingModal } value='deuda' className='btn btn-menu'>Nueva deuda<i onClick={ e => {e.stopPropagation(); e.target.parentElement.click()} } className="bi bi-bank"></i></button>
-                {/* </div> */}
-                {/* <div className='buttons__cubreBoton'> */}
+                
                     <button onClick={ openingModal } value='prestamo' className='btn btn-menu'>Nuevo prestamo<i onClick={ e => {e.stopPropagation(); e.target.parentElement.click()} } className="bi bi-bank"></i></button>
-                {/* </div> */}
-                {/* <div className='buttons__cubreBoton'> */}
+                
                     <button onClick={ openingModal } value='deudaACobrar' className='btn btn-menu'>Nueva deuda a cobrar<i onClick={ e => {e.stopPropagation(); e.target.parentElement.click()} } className="bi bi-percent"></i></button>
-                {/* </div> */}
-                {/* <div className='buttons__cubreBoton'> */}
+                
                     <button onClick={ openingModal } value='compraActivos' className='btn btn-menu'>Compra de activos<i onClick={ e => {e.stopPropagation(); e.target.parentElement.click()} } className="bi bi-cart"></i></button>
-                {/* </div> */}
-                {/* <div className='buttons__cubreBoton'> */}
+                
                     <button onClick={ openingModal } value='ventaActivos' className='btn btn-menu'>Venta de activos<i onClick={ e => {e.stopPropagation(); e.target.parentElement.click()} } className="bi bi-piggy-bank"></i></button>
-                {/* </div> */}
             </div>
         </div>
     </>

@@ -15,6 +15,7 @@ export const EditarCategorias = ({ handleClose, activeCat }) => {
     const [ stateCategorias, setStateCategorias] = useState({
         id: activeCat.id,
         tipo: activeCat.tipo,
+        categoriaActual: activeCat.catNombre,
         nombre: '',
         sector: categorias.find( cat => cat.nombre === activeCat.catNombre ).sector
     })
